@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Pranay Debnath — Student, Web Developer, and Programmer. Portfolio showcasing skills and contact information." />
+  <title>Pranay Debnath — Portfolio</title>
+
+  <style>
+    :root{
+      --bg:#0d1117;
+      --card:#161b22;
+      --muted:#8b949e;
+      --border:#30363d;
+      --accent:#238636;
+      --accent-contrast:#ffffff;
+      --preview-bg:#ffffff;
+      --preview-color:#0b0b0b;
+      --gold:#d4af37;
+      --purple:#7b3fbf;
+      --orangered:#ff4500;
+      --max-width:900px;
+      --radius:10px;
+    }
+
+    /* Reset + basics */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    a{color:var(--accent);text-decoration:none}
+    main{max-width:var(--max-width);margin:20px auto;padding:16px}
+
+    header{
+      background:var(--card);
+      padding:14px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-bottom:1px solid var(--border);
+      gap:12px;
+    }
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{font-size:18px;font-weight:700}
+    .sr-only{
+      position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px;
+    }
+
+    .btn{
+      background:var(--accent);
+      color:var(--accent-contrast);
+      padding:8px 14px;
+      border-radius:8px;
+      border:0;
+      cursor:pointer;
+      font-weight:600;
+    }
+    .btn:focus{outline:3px solid rgba(35,134,54,.25);outline-offset:2px}
+    .btn--ghost{background:transparent;border:1px solid var(--border);color:var(--muted)}
+
+    .repo-header{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin:18px 0;
+      flex-wrap:wrap;
+    }
+    .repo-header h2{font-size:18px;font-weight:600}
+    .public{
+      background:transparent;
+      color:var(--muted);
+      border:1px solid var(--border);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:13px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:18px;
+      margin-bottom:18px;
+    }
+
+    .files{display:flex;flex-direction:column;gap:6px}
+    .file{
+      padding:10px 12px;
+      border-radius:8px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      border:1px solid transparent;
+      color:var(--muted);
+      font-family:monospace;
+    }
+
+    .preview{
+      background:var(--preview-bg);
+      color:var(--preview-color);
+      padding:28px;
+      border-radius:8px;
+      text-align:center;
+    }
+    .preview h1{font-size:22px;margin-bottom:6px}
+    .preview p{color:#333;margin-bottom:14px}
+
+    .about p{color:var(--muted)}
+
+    .bar{
+      display:flex;
+      height:14px;
+      border-radius:999px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    }
+    .bar > div{height:100%}
+    .js{width:57%;background:var(--gold)}
+    .css{width:33%;background:var(--purple)}
+    .html{width:10%;background:var(--orangered)}
+
+    .lang-stats{color:var(--muted);margin-top:10px;font-size:13px}
+
+    footer{text-align:center;color:var(--muted);padding:24px 0;font-size:14px}
+
+    /* responsive */
+    @media (max-width:640px){
+      header{padding:12px}
+      .preview{padding:20px}
+      main{padding:12px}
+    }
+
+    /* prefers-reduced-motion */
+    @media (prefers-reduced-motion:reduce){
+      *{transition:none!important}
+    }
+
+    /* Dialog styles */
+    dialog::backdrop{background:rgba(0,0,0,.4)}
+    dialog{
+      border:0;border-radius:10px;padding:0;overflow:visible;
+      width:min(520px,94%);
+    }
+    .dialog-content{padding:18px;background:var(--card);color:#fff;border-radius:10px}
+    .dialog-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:6px;border-bottom:1px solid var(--border)}
+    .dialog-body{padding-top:12px}
+    .form-row{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+    input[type="text"],input[type="email"],textarea{
+      padding:10px;border-radius:8px;border:1px solid var(--border);background:transparent;color:#fff;width:100%;
+    }
+    textarea{min-height:90px;resize:vertical}
+    .dialog-actions{display:flex;gap:8px;justify-content:flex-end;padding-top:8px}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand" aria-hidden="false">
+    <div class="logo" aria-hidden="true">🐱 GitHub Style</div>
+    <div class="sr-only">Pranay Debnath Portfolio header</div>
+  </div>
+
+  <div>
+    <button class="btn" id="openContact" type="button">Contact</button>
+    <button class="btn btn--ghost" type="button" aria-label="Sign in">Sign In</button>
+  </div>
+</header>
+
+<main>
+  <section class="repo-header" aria-labelledby="repoTitle">
+    <h2 id="repoTitle">PranayDebnath / Portfolio</h2>
+    <span class="public" aria-hidden="false">Public</span>
+  </section>
+
+  <section class="card" aria-labelledby="filesTitle">
+    <h3 id="filesTitle">📁 Files</h3>
+    <div class="files" role="list">
+      <div class="file" role="listitem">portfolio</div>
+      <div class="file" role="listitem">README.md</div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="readmeTitle">
+    <h3 id="readmeTitle">README</h3>
+    <div class="preview" role="region" aria-label="Readme preview">
+      <h1>Pranay Debnath</h1>
+      <p>Student • Web Developer • Programmer</p>
+      <div>
+        <button class="btn" id="contactBtn" type="button">Contact Me</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="card about" aria-labelledby="aboutTitle">
+    <h3 id="aboutTitle">About</h3>
+    <p>
+      Welcome to my GitHub-style portfolio website. I am Pranay Debnath, passionate about Web Development,
+      JavaScript, HTML and CSS.
+    </p>
+  </section>
+
+  <section class="card" aria-labelledby="langTitle">
+    <h3 id="langTitle">Languages</h3>
+    <div class="bar" role="img" aria-label="Language composition: JavaScript 57%, CSS 33%, HTML 10%">
+      <div class="js" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="57" aria-label="JavaScript 57%"></div>
+      <div class="css" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="33" aria-label="CSS 33%"></div>
+      <div class="html" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10" aria-label="HTML 10%"></div>
+    </div>
+    <div class="lang-stats">JavaScript 57.3% | CSS 33.4% | HTML 9.3%</div>
+  </section>
+</main>
+
+<footer>
+  © 2026 Pranay Debnath
+</footer>
+
+<!-- Accessible modal dialog for contact -->
+<dialog id="contactDialog" aria-labelledby="contactTitle">
+  <div class="dialog-content">
+    <div class="dialog-header">
+      <h3 id="contactTitle" style="font-size:16px;margin:0">Contact Pranay</h3>
+      <button id="closeDialog" class="btn btn--ghost" aria-label="Close contact dialog" type="button">Close</button>
+    </div>
+
+    <div class="dialog-body">
+      <form id="contactForm">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <div class="dialog-actions">
+          <button type="button" id="cancel" class="btn btn--ghost">Cancel</button>
+          <button type="submit" class="btn">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  // Progressive enhancement: use <dialog> when available
+  const contactDialog = document.getElementById('contactDialog');
+  const openContact = document.getElementById('openContact');
+  const contactBtn = document.getElementById('contactBtn');
+  const closeDialog = document.getElementById('closeDialog');
+  const cancelBtn = document.getElementById('cancel');
+  const form = document.getElementById('contactForm');
+
+  function showContact(){
+    if (typeof contactDialog.showModal === 'function') {
+      contactDialog.showModal();
+      // move focus to first input
+      document.getElementById('name').focus();
+    } else {
+      // fallback: simple prompt
+      alert("Hello! Welcome to Pranay Debnath's Portfolio Website. Please email pranay@example.com");
+    }
+  }
+
+  openContact.addEventListener('click', showContact);
+  contactBtn.addEventListener('click', showContact);
+
+  function closeModal(){
+    try { contactDialog.close(); } catch (e) {}
+  }
+  closeDialog.addEventListener('click', closeModal);
+  cancelBtn.addEventListener('click', closeModal);
+
+  // close on ESC
+  contactDialog.addEventListener('cancel', (e) => {
+    // keep default behavior (close)
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Replace with real POST to server or 3rd-party form handling
+    const data = new FormData(form);
+    // Basic demo feedback
+    closeModal();
+    alert(`Thanks, ${data.get('name')}! Your message has been received (demo).`);
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
